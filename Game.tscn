@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://tilesets/test_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/grid.gd" type="Script" id=2]
+[ext_resource path="res://scripts/cursor.gd" type="Script" id=3]
+[ext_resource path="res://sprites/cursor.png" type="Texture" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 131074, 2, 0, 131081, 1, 0, 196620, 3, 0, 262156, 3, 0, 262157, 3, 0, 327686, 3, 0, 327693, 3, 0, 327694, 3, 0, 393230, 3, 0, 458762, 3, 0, 458767, 3, 0, 524298, 3, 0, 524299, 3, 0, 524304, 3, 0, 589834, 3, 0, 589835, 3, 0, 589840, 3, 0, 655369, 3, 0, 655370, 3, 0, 655376, 3, 0, 720904, 3, 0, 720905, 3, 0, 720913, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786449, 3, 0, 851985, 3, 0, 917521, 3, 0, 983056, 3, 0, 1048591, 3, 0, 1114125, 3, 0, 1114126, 3, 0 )
+script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 16, 16 )
+script = ExtResource( 3 )
+
+[node name="cursor" type="Sprite" parent="Node2D"]
+texture = ExtResource( 4 )
