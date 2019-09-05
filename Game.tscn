@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tilesets/test_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/grid.gd" type="Script" id=2]
 [ext_resource path="res://scripts/cursor.gd" type="Script" id=3]
 [ext_resource path="res://sprites/cursor.png" type="Texture" id=4]
+[ext_resource path="res://scripts/pawn_manager.gd" type="Script" id=5]
+[ext_resource path="res://scripts/pawn.gd" type="Script" id=6]
+[ext_resource path="res://sprites/friendly.png" type="Texture" id=7]
+[ext_resource path="res://sprites/enemy.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,9 +18,66 @@ format = 1
 tile_data = PoolIntArray( 131074, 2, 0, 131081, 1, 0, 196620, 3, 0, 262156, 3, 0, 262157, 3, 0, 327686, 3, 0, 327693, 3, 0, 327694, 3, 0, 393230, 3, 0, 458762, 3, 0, 458767, 3, 0, 524298, 3, 0, 524299, 3, 0, 524304, 3, 0, 589834, 3, 0, 589835, 3, 0, 589840, 3, 0, 655369, 3, 0, 655370, 3, 0, 655376, 3, 0, 720904, 3, 0, 720905, 3, 0, 720913, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786449, 3, 0, 851985, 3, 0, 917521, 3, 0, 983056, 3, 0, 1048591, 3, 0, 1114125, 3, 0, 1114126, 3, 0 )
 script = ExtResource( 2 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Cursor" type="Node2D" parent="TileMap"]
 position = Vector2( 16, 16 )
 script = ExtResource( 3 )
 
-[node name="cursor" type="Sprite" parent="Node2D"]
+[node name="cursor" type="Sprite" parent="TileMap/Cursor"]
 texture = ExtResource( 4 )
+
+[node name="Friendly Units" type="Node" parent="TileMap"]
+script = ExtResource( 5 )
+
+[node name="Unit 3" type="Node2D" parent="TileMap/Friendly Units"]
+position = Vector2( 16, 16 )
+script = ExtResource( 6 )
+unit_name = "Friendly Unit 1"
+
+[node name="friendly" type="Sprite" parent="TileMap/Friendly Units/Unit 3"]
+texture = ExtResource( 7 )
+
+[node name="Unit 4" type="Node2D" parent="TileMap/Friendly Units"]
+position = Vector2( 48, 48 )
+script = ExtResource( 6 )
+unit_name = "Friendly Unit 2"
+
+[node name="friendly" type="Sprite" parent="TileMap/Friendly Units/Unit 4"]
+texture = ExtResource( 7 )
+
+[node name="Unit 5" type="Node2D" parent="TileMap/Friendly Units"]
+position = Vector2( 80, 80 )
+script = ExtResource( 6 )
+unit_name = "Friendly Unit 3"
+
+[node name="friendly" type="Sprite" parent="TileMap/Friendly Units/Unit 5"]
+texture = ExtResource( 7 )
+
+[node name="Enemy Units" type="Node" parent="TileMap"]
+script = ExtResource( 5 )
+
+[node name="Enemy 1" type="Node2D" parent="TileMap/Enemy Units"]
+position = Vector2( 48, 16 )
+script = ExtResource( 6 )
+unit_name = "Enemy Unit 1"
+controllable = false
+
+[node name="enemy" type="Sprite" parent="TileMap/Enemy Units/Enemy 1"]
+texture = ExtResource( 8 )
+
+[node name="Enemy 2" type="Node2D" parent="TileMap/Enemy Units"]
+position = Vector2( 16, 48 )
+script = ExtResource( 6 )
+unit_name = "Enemy Unit 2"
+controllable = false
+
+[node name="enemy" type="Sprite" parent="TileMap/Enemy Units/Enemy 2"]
+texture = ExtResource( 8 )
+
+[node name="Enemy 3" type="Node2D" parent="TileMap/Enemy Units"]
+position = Vector2( 80, 48 )
+script = ExtResource( 6 )
+unit_name = "Enemy Unit 3"
+controllable = false
+
+[node name="enemy" type="Sprite" parent="TileMap/Enemy Units/Enemy 3"]
+texture = ExtResource( 8 )
